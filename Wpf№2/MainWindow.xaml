@@ -21,7 +21,7 @@
 
             </StackPanel>
             <StackPanel  Width="180" Orientation="Horizontal">
-                <Button Height="44" Margin="0,0,77,1" Width="55" Content="Ж"/>
+                <Button Height="44" Margin="0,0,77,1" Width="55" Content="Ж" Click="Button_Click"/>
                 <Button Height="44" Margin="-70,0,77,1" Width="55" Content="K"/>
                 <Button Height="44" Margin="-70,0,77,1" Width="55" Content="Ч"/>
 
@@ -32,7 +32,14 @@
 
             <TextBox Foreground="LightGray" Width="156" Height="41" Margin="0,0,0,5">Поиск...</TextBox>
         </ToolBar>
-        <TextBox HorizontalAlignment="Left" Height="308" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="792" Margin="0,111,0,0"/>
+
+        <RichTextBox x:Name="afas" HorizontalAlignment="Right" Height="298" VerticalAlignment="Top" Width="792" Margin="0,111,0,0" TextChanged="afas_TextChanged" SelectionChanged="afas_SelectionChanged">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
 
     </Grid>
 </Window>
