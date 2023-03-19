@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+
 
 
 namespace Wpf_2
@@ -18,12 +20,14 @@ namespace Wpf_2
     public partial class MainWindow : Window
     {
 
-
+        
         public MainWindow()
         {
             InitializeComponent();
             items.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             items1.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+            items2.ItemsSource = new List<double>() { 1, 1.5, 2, 2.5, 3, 3.5 };
+            afas.Selection.ApplyPropertyValue(Paragraph.MarginProperty, new Thickness((Double)0.5));
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -103,7 +107,19 @@ namespace Wpf_2
                 range.Save(fileStream, DataFormats.Rtf);
             }
         }
-        
-        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            var send = sender as Button;
+            afas.Selection.ApplyPropertyValue(Inline.ForegroundProperty, send.Background);
+        }
+        private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
+        {
+
+
+           afas.Selection.ApplyPropertyValue(Paragraph.MarginProperty, new Thickness((Double)items2.SelectedItem));
+
+        }
     }
 }
