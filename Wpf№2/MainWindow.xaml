@@ -12,7 +12,7 @@
 
     </Window.CommandBindings>
     <Grid Background="Bisque">
-        <Menu Margin="0,0,363,378" >
+        <Menu  HorizontalAlignment="Left" Margin="0,0,0,363" >
             <MenuItem Header="Файл" Background="Azure"  Width="79" Height="49"  Click="MenuItem_Click_1" RenderTransformOrigin="1.342,0.47">
 
                 <MenuItem Header="Open" Command="ApplicationCommands.Open" >
@@ -27,9 +27,9 @@
                 </MenuItem>
 
             </MenuItem>
-            <MenuItem Header="View" Background="Azure" Height="46" Width="83" Click="MenuItem_Click"/>
+            <MenuItem Header="View" Background="Azure" Height="48" Width="83" Click="MenuItem_Click"/>
         </Menu>
-        <ToolBar Height="55" VerticalAlignment="Top" Margin="0,56,0,0">
+        <ToolBar HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Margin="0,56,0,0" Width="792">
             <StackPanel Width="103"  >
                 <WrapPanel Height="50" Width="78" Background="Gray">
                     <Button Height="25" Width="25" Background="Yellow" Click="Button_Click_1"></Button>
@@ -68,12 +68,7 @@
 
         </ToolBar>
 
-        <ToolBar Height="39" VerticalAlignment="Top" Panel.ZIndex="4" Margin="434,0,95,0">
-
-            <TextBox Foreground="LightGray" Width="156" Height="41" Margin="0,0,0,5">Поиск...</TextBox>
-        </ToolBar>
-
-        <RichTextBox x:Name="afas" HorizontalAlignment="Right" Height="298" VerticalAlignment="Top" Width="792" Margin="0,111,0,0" TextChanged="afas_TextChanged" SelectionChanged="afas_SelectionChanged">
+        <RichTextBox x:Name="afas" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="792" Margin="0,111,0,0" TextChanged="afas_TextChanged" SelectionChanged="afas_SelectionChanged">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
