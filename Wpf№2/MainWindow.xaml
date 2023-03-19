@@ -6,26 +6,57 @@
         xmlns:local="clr-namespace:Wpf_2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+        
+    </Window.CommandBindings>
     <Grid Background="Bisque">
-        <Menu Margin="0,0,363,368" Panel.ZIndex="3">
-            <MenuItem Header="file" Background="Azure"  Width="79" Height="49" RenderTransformOrigin="0.506,0.548">
-                <MenuItem Header="New" Background="Aquamarine"  Margin="0,0,41,0" />
-                <MenuItem Header="open" Background="Beige"  Margin="0,0,73,7"/>
+        <Menu Margin="0,0,363,378" >
+            <MenuItem Header="file" Background="Azure"  Width="79" Height="49"  Click="MenuItem_Click_1" RenderTransformOrigin="1.342,0.47">
+                
+                <MenuItem Header="Open" Command="ApplicationCommands.Open" >
+
+                </MenuItem>
+                <MenuItem Header="Save" Command="ApplicationCommands.Save">
+
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Click" Click="Button_Click">
+
+                </MenuItem>
+
             </MenuItem>
-            <MenuItem Header="edit" Background="Azure" Height="45" Width="98"/>
             <MenuItem Header="View" Background="Azure" Height="46" Width="83" Click="MenuItem_Click"/>
         </Menu>
-        <ToolBar Height="50" VerticalAlignment="Top" Margin="0,56,0,0">
+        <ToolBar Height="55" VerticalAlignment="Top" Margin="0,56,0,0">
             <StackPanel Width="103" >
 
             </StackPanel>
             <StackPanel  Width="180" Orientation="Horizontal">
-                <Button Height="44" Margin="0,0,77,1" Width="55" Content="Ж" Click="Button_Click"/>
-                <Button Height="44" Margin="-70,0,77,1" Width="55" Content="K"/>
-                <Button Height="44" Margin="-70,0,77,1" Width="55" Content="Ч"/>
+                
+                <ToggleButton x:Name="bolt"  ToolTip="включает жирный шрифт" Height="49" Margin="0,0,77,1" Width="55" Content="Ж" Click="Button_Click" Command="EditingCommands.ToggleBold"/>
+                <ToggleButton x:Name="italic" ToolTip="включает курсив" Margin="-70,0,77,1" Width="55" Content="K" Command="EditingCommands.ToggleItalic" Height="49"/>
+                <ToggleButton x:Name="underliune" ToolTip="включает подчеркивание" Margin="-70,0,77,1" Width="55" Content="Ч" Command="EditingCommands.ToggleUnderline"/>
 
             </StackPanel>
+            <StackPanel Width="103" >
+                
+                <ComboBox x:Name="items"  Width="94" SelectionChanged="ComboBox_SelectionChanged"/>
+                
+            </StackPanel>
+            <StackPanel Width="100">
+                <ComboBox x:Name="items1" SelectionChanged="ComboBox_SelectionChanged_1" Width="100">  </ComboBox>
+            </StackPanel>
+            <StackPanel>
+                
+            </StackPanel>
+            <StackPanel Width="97">
+                <ComboBox>
+                    
+                </ComboBox>
+            </StackPanel>
+            
         </ToolBar>
 
         <ToolBar Height="39" VerticalAlignment="Top" Panel.ZIndex="4" Margin="434,0,95,0">
